@@ -11,4 +11,5 @@ public class SbBlogWebAppApplication {
     }
 
     //Test from DaRIA
+    //Test from Vlad
 }
