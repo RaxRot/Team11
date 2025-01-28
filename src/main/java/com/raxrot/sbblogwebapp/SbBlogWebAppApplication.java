@@ -10,6 +10,4 @@ public class SbBlogWebAppApplication {
         SpringApplication.run(SbBlogWebAppApplication.class, args);
     }
 
-    //Test from DaRIA
-    //Test from Vlad
 }
