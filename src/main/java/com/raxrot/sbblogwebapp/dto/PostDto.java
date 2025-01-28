@@ -11,11 +11,9 @@ public class PostDto {
     private LocalDateTime createdOn;
     private LocalDateTime updatedOn;
 
-    // Конструктор без параметров (нужен для Spring)
     public PostDto() {
     }
 
-    // Конструктор со всеми параметрами
     public PostDto(Long id, String title, String url, String content, String shortDescription, LocalDateTime createdOn, LocalDateTime updatedOn) {
         this.id = id;
         this.title = title;
@@ -26,7 +24,7 @@ public class PostDto {
         this.updatedOn = updatedOn;
     }
 
-    // Геттеры и сеттеры
+
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
 
