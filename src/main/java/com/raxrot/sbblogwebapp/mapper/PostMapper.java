@@ -6,7 +6,7 @@ import com.raxrot.sbblogwebapp.entity.Post;
 public class PostMapper {
 
     //map Post entity to PostDTO
-    public PostDto mapToPostDto(Post post) {
+    public static PostDto mapToPostDto(Post post) {
         PostDto postDto=PostDto.builder()
                 .id(post.getId())
                 .title(post.getTitle())
@@ -20,7 +20,7 @@ public class PostMapper {
     }
 
     //map PostDTO entity to Post
-    public Post mapToPost(PostDto postDto) {
+    public static Post mapToPost(PostDto postDto) {
         Post post=Post.builder()
                 .id(postDto.getId())
                 .title(postDto.getTitle())
