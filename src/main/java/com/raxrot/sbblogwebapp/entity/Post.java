@@ -1,15 +1,12 @@
 package com.raxrot.sbblogwebapp.entity;
 
 import jakarta.persistence.*;
-import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.LocalDateTime;
 
-@Getter
-@Setter
-@Builder
+
 @Entity
 @Table(name = "posts")
 public class Post {
