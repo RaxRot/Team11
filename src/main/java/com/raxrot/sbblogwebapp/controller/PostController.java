@@ -6,10 +6,7 @@ import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -93,11 +90,17 @@ public class PostController {
     }
 
     private static String getUrl(String postTitle){
-        // OOPS Concepts Explained in Java
-        // oops-concepts-explained-in-java
         String title = postTitle.trim().toLowerCase();
         String url = title.replaceAll("\\s+", "-");
         url = url.replaceAll("[^A-Za-z0-9]", "-");
         return url;
+    }
+
+    @GetMapping("/admin/posts/search")
+    public String searchPosts(@RequestParam(value = "query") String query,
+                              Model model){
+        List<PostDto> posts = postService.searchPosts(query);
+        model.addAttribute("posts", posts);
+        return "admin/posts";
     }
 }
