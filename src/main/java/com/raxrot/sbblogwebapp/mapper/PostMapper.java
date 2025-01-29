@@ -3,6 +3,8 @@ package com.raxrot.sbblogwebapp.mapper;
 import com.raxrot.sbblogwebapp.dto.PostDto;
 import com.raxrot.sbblogwebapp.entity.Post;
 
+import java.util.stream.Collectors;
+
 public class PostMapper {
 
     //map Post entity to PostDTO
@@ -14,7 +16,9 @@ public class PostMapper {
                 post.getContent(),
                 post.getShortDescription(),
                 post.getCreatedOn(),
-                post.getUpdatedOn()
+                post.getUpdatedOn(),
+                post.getComments().stream().map(comment -> CommentMapper.mapToCommentDto(comment))
+                        .collect(Collectors.toSet())
         );
     }
 

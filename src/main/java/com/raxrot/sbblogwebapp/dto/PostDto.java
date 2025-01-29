@@ -3,6 +3,7 @@ package com.raxrot.sbblogwebapp.dto;
 import jakarta.validation.constraints.NotEmpty;
 
 import java.time.LocalDateTime;
+import java.util.Set;
 
 public class PostDto {
     private Long id;
@@ -15,11 +16,20 @@ public class PostDto {
     private String shortDescription;
     private LocalDateTime createdOn;
     private LocalDateTime updatedOn;
+    private Set<CommentDto> comments;
+
+    public Set<CommentDto> getComments() {
+        return comments;
+    }
+
+    public void setComments(Set<CommentDto> comments) {
+        this.comments = comments;
+    }
 
     public PostDto() {
     }
 
-    public PostDto(Long id, String title, String url, String content, String shortDescription, LocalDateTime createdOn, LocalDateTime updatedOn) {
+    public PostDto(Long id, String title, String url, String content, String shortDescription, LocalDateTime createdOn, LocalDateTime updatedOn,Set<CommentDto> comments) {
         this.id = id;
         this.title = title;
         this.url = url;
@@ -27,6 +37,7 @@ public class PostDto {
         this.shortDescription = shortDescription;
         this.createdOn = createdOn;
         this.updatedOn = updatedOn;
+        this.comments = comments;
     }
 
 
