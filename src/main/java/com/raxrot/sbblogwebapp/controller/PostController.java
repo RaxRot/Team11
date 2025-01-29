@@ -1,6 +1,8 @@
 package com.raxrot.sbblogwebapp.controller;
 
+import com.raxrot.sbblogwebapp.dto.CommentDto;
 import com.raxrot.sbblogwebapp.dto.PostDto;
+import com.raxrot.sbblogwebapp.service.CommentService;
 import com.raxrot.sbblogwebapp.service.PostService;
 import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;
@@ -13,8 +15,11 @@ import java.util.List;
 @Controller
 public class PostController {
     private PostService postService;
-    public PostController(PostService postService) {
+    private CommentService commentService;
+
+    public PostController(PostService postService,CommentService commentService) {
         this.postService = postService;
+        this.commentService = commentService;
     }
 
     @GetMapping("/admin/posts")
@@ -22,6 +27,19 @@ public class PostController {
         List<PostDto>posts=postService.findAllPosts();
         model.addAttribute("posts", posts);
         return "/admin/posts";
+    }
+
+    @GetMapping("/admin/posts/comments")
+    public String postComments(Model model){
+        List<CommentDto> comments = commentService.findAllComments();
+        model.addAttribute("comments", comments);
+        return "admin/comments";
+    }
+
+    @GetMapping("/admin/posts/comments/{commentId}")
+    public String deleteComment(@PathVariable("commentId") Long commentId){
+        commentService.deleteComment(commentId);
+        return "redirect:/admin/posts/comments";
     }
 
     // handler method to handle new post request
