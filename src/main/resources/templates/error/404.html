@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+>
+<head>
+    <meta charset="UTF-8">
+    <title>PageNotFound</title>
+
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+
+</head>
+<body>
+<h2>The requested page could not found</h2>
+<p>Click <a th:href="@{/}">Home</a> to go to home page</p>
+
+<img th:src="@{/images/caterror.jpg}" alt="Описание картинки">
+
+</body>
+</html>

@@ -56,6 +56,4 @@ public class WebSpringSecurity {
         builder.userDetailsService(userDetailsService)
                 .passwordEncoder(passwordEncoder());
     }
-
-
 }
